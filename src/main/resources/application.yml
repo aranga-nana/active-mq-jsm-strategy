@@ -1,0 +1,31 @@
+server:
+  port: 8085
+
+
+spring:
+  application:
+    # This ends up as the service name in zipkin
+    name: testsleuthzipkin
+  zipkin:
+    # Uncomment to send to zipkin, replacing 192.168.99.100 with your zipkin IP address
+    baseUrl: http://localhost:9411/
+  sleuth:
+    log:
+      json:
+        enabled: true
+    sampler:
+      probability: 1.0
+
+sample:
+  zipkin:
+    # When enabled=false, traces log to the console. Comment to send to zipkin
+    enabled: true
+
+app:
+  reload:
+    time: -120
+activemq:
+  username: master
+  password: password
+  broker:
+    url: failover:(tcp://localhost:61616)
